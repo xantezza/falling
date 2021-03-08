@@ -13,23 +13,24 @@ size = Vector3( 0.1, 2, 2 )
 [node name="ObstacleBody" type="KinematicBody"]
 script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04589, 0 )
+[node name="1" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0200494 )
 shape = SubResource( 1 )
 
-[node name="Obstacle" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04589, 0 )
+[node name="Obstacle" type="MeshInstance" parent="1"]
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="OmniLight2" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22434, -1.04589, -1.14072 )
-light_energy = 16.0
-omni_range = 4.7
-omni_attenuation = 6.06287
+[node name="2" type="CollisionShape" parent="."]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Obstacle2" type="MeshInstance" parent="2"]
+mesh = SubResource( 2 )
+material/0 = null
 
 [node name="OmniLight3" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.224, -1.04589, -1.14092 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0323954, 0.224711, -1.8013 )
 light_energy = 16.0
-omni_range = 4.7
-omni_attenuation = 6.06287
+omni_range = 3.0
+omni_attenuation = 8.87655

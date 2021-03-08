@@ -2,22 +2,28 @@ using Godot;
 using System;
 
 public class ObstacleBody : KinematicBody
-{
-        
-    public override void _Ready()
+{	
+	Vector3 velocity;
+	public override void _Ready()
     {
 		GD.Randomize();
-		RotationDegrees += new Vector3(0, 0, (float)GD.RandRange(0,360));
-	}
 
+		float time = GetParent<Main>().time;
+
+		float offset = GetParent<Main>().RangeLerp(time, 0, 60, 1, 2.5f);
+
+		velocity = new Vector3(0, 0, -0.15f) * offset;
+
+		RotationDegrees += new Vector3(0, 0, (float)GD.RandRange(0,360));
+
+		float obstacleOffset = 1-offset * 0.25f;
+
+		GetNode<CollisionShape>("1").Translation += new Vector3( (float)GD.RandRange(-offset, offset),
+																(float)GD.RandRange(-offset, offset),
+																0);
+	}	
 	public override void _Process(float delta)
 	{
-	
-		Translation += new Vector3(0, 0, -0.15f)*RangeLerp((GetParent<Main>().time),0,60,1,2.5f);
-		
-	}
-	public float RangeLerp(float value, float istart, float istop, float ostart, float ostop)
-	{
-		return ostart + (ostop - ostart) * value / (istop - istart);
+		Translation += velocity ;
 	}
 }

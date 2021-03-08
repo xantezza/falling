@@ -8,3 +8,7 @@ export.cfg
 export_presets.cfg
 *.editor_player
 *.editor
+.mono/metadata/ide_messaging_meta.txt
+.mono/metadata/ide_messaging_meta.txt
+.mono/metadata/scripts_metadata.editor
+.mono/metadata/scripts_metadata.editor_player
