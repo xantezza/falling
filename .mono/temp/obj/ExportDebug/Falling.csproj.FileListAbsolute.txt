@@ -1,0 +1,8 @@
+C:\csharp\Falling-In-Tunnel\.mono\temp\bin\ExportDebug\Falling.dll
+C:\csharp\Falling-In-Tunnel\.mono\temp\bin\ExportDebug\Falling.pdb
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.csprojAssemblyReference.cache
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.AssemblyInfoInputs.cache
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.AssemblyInfo.cs
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.csproj.CoreCompileInputs.cache
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.dll
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.pdb

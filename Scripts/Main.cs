@@ -36,6 +36,7 @@ public class Main : Spatial
 		obstacleScene = GD.Load<PackedScene>("res://Scenes/ObstacleBody.tscn");
 		
 		GetNode<FileDialog>("Control/FileDialog").Show();
+		
 		GetNode<FileDialog>("Control/FileDialog").Invalidate();
 	}
 

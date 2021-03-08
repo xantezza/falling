@@ -10,7 +10,7 @@ radius = 0.0876887
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 1, 1, 6.6446 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -21,12 +21,12 @@ border_blend = true
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.219608, 0.211765, 0.227451, 1 )
 corner_radius_top_left = 50
 corner_radius_top_right = 50
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_top = 5
 border_width_right = 10
@@ -98,9 +98,8 @@ margin_left = 640.0
 margin_top = 1048.55
 margin_right = 1280.0
 margin_bottom = 1079.55
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
-max_value = 100.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
 step = 0.1
 value = 100.0
 percent_visible = false
@@ -112,7 +111,7 @@ __meta__ = {
 margin_top = -1.5874
 margin_right = 1920.0
 margin_bottom = 35.4126
-custom_styles/fg = SubResource( 3 )
+custom_styles/fg = SubResource( 5 )
 custom_styles/bg = SubResource( 6 )
 step = 0.1
 percent_visible = false
@@ -121,15 +120,16 @@ __meta__ = {
 }
 
 [node name="FileDialog" type="FileDialog" parent="Control"]
-margin_top = -104.0
+visible = true
+margin_top = 37.0
 margin_right = 959.0
-margin_bottom = 487.0
+margin_bottom = 557.0
 rect_scale = Vector2( 2, 2 )
 window_title = "Открыть файл"
 mode = 0
 filters = PoolStringArray( "*.ogg" )
-current_dir = "res://Audio/FutureBass"
-current_path = "res://Audio/FutureBass/"
+current_dir = "res://Audio"
+current_path = "res://Audio/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
