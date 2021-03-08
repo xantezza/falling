@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tunnel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/FutureBass/Elahu, Quincy-Gerard - Skin and Bones.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Memba - Walls Down (feat. Evan Giia).ogg" type="AudioStream" id=3]
+[ext_resource path="res://Fonts/Ubuntu/Ubuntu-Light.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.0876887
@@ -38,6 +39,17 @@ corner_radius_bottom_right = 55
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0, 0, 0, 1 )
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 34
+corner_radius_top_right = 780
+
+[sub_resource type="DynamicFont" id=8]
+size = 64
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -62,10 +74,9 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="Head"]
 
 [node name="OmniLight" type="OmniLight" parent="Head"]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.00125114, -3.72529e-09, -0.875895 )
-visible = false
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0012434, -3.72529e-09, -24.6333 )
 light_energy = 2.0
-omni_range = 1.9
+omni_range = 6.63668
 omni_attenuation = 2.37841
 
 [node name="ObstacleKiller" type="Area" parent="."]
@@ -119,22 +130,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FileDialog" type="FileDialog" parent="Control"]
-visible = true
-margin_top = 37.0
-margin_right = 959.0
-margin_bottom = 557.0
-rect_scale = Vector2( 2, 2 )
-window_title = "Открыть файл"
-mode = 0
-filters = PoolStringArray( "*.ogg" )
-current_dir = "res://Audio"
-current_path = "res://Audio/"
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+margin_left = 138.0
+margin_top = 540.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="Control/ScrollContainer"]
+margin_right = 1782.0
+margin_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/guide_color = Color( 0.27451, 0.27451, 0.27451, 1 )
+custom_colors/font_color_selected = Color( 0.964706, 0.964706, 0.964706, 1 )
+custom_colors/font_color = Color( 0.717647, 0.717647, 0.717647, 1 )
+items = [ "Elahu, Quincy-Gerard - Skin and Bones", null, false, "Flume - MUD", null, false, "Flume feat. Vera Blue - Rushing Back", null, false, "Memba - Walls Down (feat. Evan Giia)", null, false ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
 [connection signal="body_entered" from="ObstacleKiller" to="." method="_on_ObstacleKiller_body_entered"]
-[connection signal="file_selected" from="Control/FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="hide" from="Control/FileDialog" to="." method="_on_FileDialog_hide"]
+[connection signal="item_activated" from="Control/ScrollContainer/ItemList" to="." method="_on_ItemList_item_activated"]

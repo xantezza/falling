@@ -4,17 +4,12 @@ using System;
 public class Main : Spatial
 {
 	public float time = 0;
-	float moveSpeed = 0.02f;
+	float moveSpeed = 0.04f;
 	float high;
 	float mid;
 	float low;
 
-	int close = 0;
-
 	float health = 100;
-
-	float progress = 0;
-
 	float trackLenght;
 	ProgressBar healthBar;
 	ProgressBar progressBar;
@@ -34,10 +29,6 @@ public class Main : Spatial
 
 		material = GD.Load<SpatialMaterial>("res://Materials/1.tres");
 		obstacleScene = GD.Load<PackedScene>("res://Scenes/ObstacleBody.tscn");
-		
-		GetNode<FileDialog>("Control/FileDialog").Show();
-		
-		GetNode<FileDialog>("Control/FileDialog").Invalidate();
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -45,9 +36,7 @@ public class Main : Spatial
 		moveDirection = new Vector2(-Convert.ToInt32(Input.IsActionPressed("ui_right")) + Convert.ToInt32(Input.IsActionPressed("ui_left")),
 									-Convert.ToInt32(Input.IsActionPressed("ui_down")) + Convert.ToInt32(Input.IsActionPressed("ui_up"))
 									);
-
-		
-
+									
 		if (moveDirection != new Vector2(0, 0))
 		{
 			moveDirection = moveDirection.Normalized();
@@ -73,9 +62,6 @@ public class Main : Spatial
 		}
 
 		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(0, 0);
-
-
-		
 		high = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(7000, 16000).Length()), -30, 10, 0, 255);
 		mid = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(500, 8000).Length()), -30, 10, 0, 255);
 		low = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(30, 100).Length()), -30, 10, 0, 255);
@@ -116,22 +102,19 @@ public class Main : Spatial
 		
 		if (health < 0) GetTree().ReloadCurrentScene();
 	}
-	void _on_FileDialog_file_selected(string path){
-		close -= 1;
+	
+	void _on_ItemList_item_activated(int index){
 
-		GetNode<Timer>("Timer").Start();
+		ItemList itemList = GetNode<ItemList>("Control/ScrollContainer/ItemList");
+		itemList.Hide();
 
 		AudioStreamPlayer audioPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer3D");
-
-		audioPlayer.Stream = GD.Load<AudioStream>(path);
-
+		
+		audioPlayer.Stream = GD.Load<AudioStream>("res://Audio/" + itemList.GetItemText(index) + ".ogg");
 		progressBar.MaxValue = audioPlayer.Stream.GetLength();
-
+		
 		audioPlayer.Play();
-	}
-	void _on_FileDialog_hide()
-	{
-		close += 1;
-		if (close == 2) GetTree().ReloadCurrentScene();
-	}
+		GetNode<Timer>("Timer").Start();
+	}	
+
 }

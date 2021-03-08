@@ -16,14 +16,12 @@ public class ObstacleBody : KinematicBody
 
 		RotationDegrees += new Vector3(0, 0, (float)GD.RandRange(0,360));
 
-		float obstacleOffset = 1-offset * 0.25f;
+		float obstacleOffset = 1/offset * 0.25f;
 
 		GetNode<CollisionShape>("1").Translation += new Vector3( (float)GD.RandRange(-offset, offset),
 																 (float)GD.RandRange(-offset, offset),
 																 0);
-		GetNode<CollisionShape>("2").Translation += new Vector3( (float)GD.RandRange(-offset, offset),
-																 (float)GD.RandRange(-offset, offset),
-																 0);
+		
 	}	
 	public override void _Process(float delta)
 	{
