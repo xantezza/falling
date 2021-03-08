@@ -77,8 +77,6 @@ public class Main : Spatial
 		obstacle = (KinematicBody)obstacleScene.Instance();
 		AddChild(obstacle);
 		obstacle.Translation = new Vector3(0,0,55);
-
-
 	}
 	public float RangeLerp(float value, float istart, float istop, float ostart, float ostop)
 	{

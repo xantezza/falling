@@ -6,3 +6,11 @@ C:\csharp\BallInTunnel\.mono\temp\obj\ExportRelease\BallInTunnel.AssemblyInfo.cs
 C:\csharp\BallInTunnel\.mono\temp\obj\ExportRelease\BallInTunnel.csproj.CoreCompileInputs.cache
 C:\csharp\BallInTunnel\.mono\temp\obj\ExportRelease\BallInTunnel.dll
 C:\csharp\BallInTunnel\.mono\temp\obj\ExportRelease\BallInTunnel.pdb
+C:\csharp\Falling-In-Tunnel\.mono\temp\bin\ExportRelease\BallInTunnel.dll
+C:\csharp\Falling-In-Tunnel\.mono\temp\bin\ExportRelease\BallInTunnel.pdb
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportRelease\BallInTunnel.csprojAssemblyReference.cache
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportRelease\BallInTunnel.AssemblyInfoInputs.cache
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportRelease\BallInTunnel.AssemblyInfo.cs
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportRelease\BallInTunnel.csproj.CoreCompileInputs.cache
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportRelease\BallInTunnel.dll
+C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportRelease\BallInTunnel.pdb
