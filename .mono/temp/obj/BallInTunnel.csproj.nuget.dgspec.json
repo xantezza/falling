@@ -1,0 +1,50 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\csharp\\BallInTunnel\\BallInTunnel.csproj": {}
+  },
+  "projects": {
+    "C:\\csharp\\BallInTunnel\\BallInTunnel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\csharp\\BallInTunnel\\BallInTunnel.csproj",
+        "projectName": "BallInTunnel",
+        "projectPath": "C:\\csharp\\BallInTunnel\\BallInTunnel.csproj",
+        "packagesPath": "C:\\Users\\itori\\.nuget\\packages\\",
+        "outputPath": "C:\\csharp\\BallInTunnel\\.mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\itori\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

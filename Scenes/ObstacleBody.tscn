@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/ObstacleBody.cs" type="Script" id=1]
+[ext_resource path="res://Materials/1.tres" type="Material" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0529511, 1, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = ExtResource( 2 )
+size = Vector3( 0.1, 2, 2 )
+
+[node name="ObstacleBody" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.679487, 0 )
+shape = SubResource( 1 )
+
+[node name="Obstacle" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.679487, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22434, -0.679487, -1.14072 )
+light_energy = 16.0
+omni_range = 4.7
+omni_attenuation = 6.06287
+
+[node name="OmniLight3" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.224, -0.679487, -1.14092 )
+light_energy = 16.0
+omni_range = 4.7
+omni_attenuation = 6.06287

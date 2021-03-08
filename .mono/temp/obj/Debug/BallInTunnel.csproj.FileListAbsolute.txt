@@ -1,0 +1,8 @@
+C:\csharp\BallInTunnel\.mono\temp\bin\Debug\BallInTunnel.dll
+C:\csharp\BallInTunnel\.mono\temp\bin\Debug\BallInTunnel.pdb
+C:\csharp\BallInTunnel\.mono\temp\obj\Debug\BallInTunnel.csprojAssemblyReference.cache
+C:\csharp\BallInTunnel\.mono\temp\obj\Debug\BallInTunnel.AssemblyInfoInputs.cache
+C:\csharp\BallInTunnel\.mono\temp\obj\Debug\BallInTunnel.AssemblyInfo.cs
+C:\csharp\BallInTunnel\.mono\temp\obj\Debug\BallInTunnel.csproj.CoreCompileInputs.cache
+C:\csharp\BallInTunnel\.mono\temp\obj\Debug\BallInTunnel.dll
+C:\csharp\BallInTunnel\.mono\temp\obj\Debug\BallInTunnel.pdb

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Flume - MUD.ogg-6587f785b3aafcb721b29007200743d8.oggstr"
+
+[deps]
+
+source_file="res://Audio/Flume - MUD.ogg"
+dest_files=[ "res://.import/Flume - MUD.ogg-6587f785b3aafcb721b29007200743d8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

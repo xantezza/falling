@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
+[ext_resource path="res://Scenes/Tunnel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Elahu_-Quincy-Gerard-Skin-_-Bones.ogg" type="AudioStream" id=3]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.212701
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 12.2223 )
+
+[node name="Tunnel" parent="Spatial" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, -4.26326e-14, 0, 4.26326e-14, 1, 0, -12, 0 )
+
+[node name="Lightning" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+
+[node name="OmniLight2" type="OmniLight" parent="Lightning"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007, 0, 5 )
+visible = false
+light_energy = 16.0
+omni_range = 3.1
+omni_attenuation = 3.4822
+
+[node name="OmniLight3" type="OmniLight" parent="Lightning"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
+visible = false
+light_energy = 16.0
+omni_range = 3.1
+omni_attenuation = 3.4822
+
+[node name="OmniLight4" type="OmniLight" parent="Lightning"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15 )
+visible = false
+light_energy = 16.0
+omni_range = 3.1
+omni_attenuation = 3.4822
+
+[node name="OmniLight5" type="OmniLight" parent="Lightning"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -4.118 )
+visible = false
+light_energy = 16.0
+omni_range = 1.3
+omni_attenuation = 3.4822
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.375
+
+[node name="KinBody" type="KinematicBody" parent="."]
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0.00125143, 3.72529e-09, 0.000105083 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinBody"]
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="KinBody"]
+
+[node name="OmniLight" type="OmniLight" parent="KinBody"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.00125114, -3.72529e-09, -0.875895 )
+visible = false
+light_energy = 2.0
+omni_range = 1.9
+omni_attenuation = 2.37841
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Flume feat. Vera Blue - Rushing Back.ogg-00397228093753e6a1f7c76f38ae5d0e.oggstr"
+
+[deps]
+
+source_file="res://Audio/Flume feat. Vera Blue - Rushing Back.ogg"
+dest_files=[ "res://.import/Flume feat. Vera Blue - Rushing Back.ogg-00397228093753e6a1f7c76f38ae5d0e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
