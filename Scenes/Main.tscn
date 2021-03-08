@@ -1,23 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tunnel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/Elahu, Quincy-Gerard - Skin and Bones.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Fonts/Ubuntu/Ubuntu-Light.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Audio/FutureBass/Elahu, Quincy-Gerard - Skin and Bones.ogg" type="AudioStream" id=3]
 
 [sub_resource type="SphereShape" id=1]
-radius = 0.135779
+radius = 0.0876887
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 1, 1, 6.6446 )
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="DynamicFont" id=4]
-size = 50
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 4 )
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
@@ -30,37 +21,6 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 1
 
 [node name="Tunnel" parent="Spatial" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, -4.26326e-14, 0, 4.26326e-14, 1, 0, 0, 0 )
-
-[node name="Lightning" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
-
-[node name="OmniLight2" type="OmniLight" parent="Lightning"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007, 0, 5 )
-visible = false
-light_energy = 16.0
-omni_range = 3.1
-omni_attenuation = 3.4822
-
-[node name="OmniLight3" type="OmniLight" parent="Lightning"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
-visible = false
-light_energy = 16.0
-omni_range = 3.1
-omni_attenuation = 3.4822
-
-[node name="OmniLight4" type="OmniLight" parent="Lightning"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15 )
-visible = false
-light_energy = 16.0
-omni_range = 3.1
-omni_attenuation = 3.4822
-
-[node name="OmniLight5" type="OmniLight" parent="Lightning"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, -4.118 )
-visible = false
-light_energy = 16.0
-omni_range = 1.3
-omni_attenuation = 3.4822
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.375
@@ -93,19 +53,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemList" type="ItemList" parent="Control"]
-margin_left = 15.0
-margin_top = 13.0
-margin_right = 1919.0
-margin_bottom = 1086.0
-custom_styles/bg = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-items = [ "Droeloe - Kintsugi", null, false, "Flume - MUD", null, false, "Flume feat. Vera Blue - Rushing Back", null, false, "Elahu, Quincy-Gerard - Skin And Bones", null, false ]
+[node name="FileDialog" type="FileDialog" parent="Control"]
+margin_top = -104.0
+margin_right = 959.0
+margin_bottom = 487.0
+rect_scale = Vector2( 2, 2 )
+window_title = "Открыть файл"
+mode = 0
+filters = PoolStringArray( "*.ogg" )
+current_dir = "res://Audio"
+current_path = "res://Audio/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
 [connection signal="body_entered" from="ObstacleKiller" to="." method="_on_ObstacleKiller_body_entered"]
-[connection signal="item_selected" from="Control/ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="file_selected" from="Control/FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="hide" from="Control/FileDialog" to="." method="_on_FileDialog_hide"]
