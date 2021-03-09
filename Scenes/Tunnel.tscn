@@ -5,7 +5,7 @@
 
 [sub_resource type="CylinderMesh" id=1]
 flip_faces = true
-height = 25.0
+height = 50.0
 
 [node name="Tunnel" type="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52588e-05, 0 )

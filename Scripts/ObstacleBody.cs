@@ -15,7 +15,7 @@ public class ObstacleBody : KinematicBody
 		GetNode<CollisionShape>("1").RotationDegrees += new Vector3(0, 0, (float)GD.RandRange(0,360));
 		RotationDegrees += new Vector3(0, 0, (float)GD.RandRange(0, 360));
 
-		float obstacleOffset = GetParent<Main>().RangeLerp(time, 0, trackLenght, 2f, 0f); ;
+		float obstacleOffset = 0;// GetParent<Main>().RangeLerp(time, 0, trackLenght, 2f, 0f); ;
 
 		GetNode<CollisionShape>("1").Translation += new Vector3( (float)GD.RandRange(-obstacleOffset, obstacleOffset),
 																 (float)GD.RandRange(-obstacleOffset, obstacleOffset),

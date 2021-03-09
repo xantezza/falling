@@ -95,7 +95,7 @@ public class Main : Spatial
 		Spatial spatial = GetNode<Spatial>("Spatial/Tunnel/Spatial");
 		obstacle = (KinematicBody)obstacleScene.Instance();
 		AddChild(obstacle);
-		obstacle.Translation = new Vector3(0, 0, 26);
+		obstacle.Translation = new Vector3(0, 0, 52);
 		progressBar.Value += 0.5f;
 		if (progressBar.Value > progressBar.MaxValue) GetTree().ReloadCurrentScene();
 

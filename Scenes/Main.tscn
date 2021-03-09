@@ -43,13 +43,13 @@ bg_color = Color( 0, 0, 0, 1 )
 bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 64
+size = 60
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 30
+size = 50
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
@@ -61,7 +61,7 @@ script = ExtResource( 1 )
 stream = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial" parent="."]
-transform = Transform( 2.65431e-14, 1.62921e-07, 1, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.62921e-07, 0, 0, 11 )
+transform = Transform( 2.65431e-14, 1.62921e-07, 1, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.62921e-07, 0, 0, 24.0145 )
 
 [node name="Tunnel" parent="Spatial" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -78,7 +78,8 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="Head"]
 
 [node name="OmniLight" type="OmniLight" parent="Head"]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.00124305, -3.72529e-09, -25.694 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.00123537, -3.72529e-09, -49.2587 )
+visible = false
 light_energy = 2.0
 omni_range = 16.1
 omni_attenuation = 7.72747
@@ -98,21 +99,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-margin_left = -27.0
-margin_top = 1043.0
-margin_right = 1954.0
-margin_bottom = 1083.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Health" type="ProgressBar" parent="Control"]
-margin_left = 640.0
-margin_top = 1048.55
-margin_right = 1280.0
-margin_bottom = 1079.55
+margin_left = -2.0
+margin_top = 2266.0
+margin_right = 1080.0
+margin_bottom = 2297.0
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
 step = 0.1
@@ -123,9 +114,9 @@ __meta__ = {
 }
 
 [node name="Progress" type="ProgressBar" parent="Control"]
-margin_top = -1.5874
-margin_right = 1920.0
-margin_bottom = 35.4126
+margin_top = -2.0
+margin_right = 1078.0
+margin_bottom = 36.0
 custom_styles/fg = SubResource( 5 )
 custom_styles/bg = SubResource( 6 )
 step = 0.1
@@ -134,18 +125,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_left = -3.0
+margin_top = 2290.0
+margin_right = 1080.0
+margin_bottom = 2337.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ScrollContainer" type="ScrollContainer" parent="Control"]
-margin_left = 138.0
-margin_top = 540.0
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_left = -1.0
+margin_top = 1504.0
+margin_right = 1080.0
+margin_bottom = 2338.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ItemList" type="ItemList" parent="Control/ScrollContainer"]
-margin_right = 1782.0
-margin_bottom = 540.0
+margin_right = 1081.0
+margin_bottom = 834.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 7 )
@@ -159,10 +160,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control"]
-margin_left = 38.7487
-margin_top = 43.3723
-margin_right = 204.749
-margin_bottom = 77.3723
+margin_left = 794.872
+margin_top = 769.646
+margin_right = 1071.87
+margin_bottom = 826.646
 custom_fonts/font = SubResource( 9 )
 text = "Colorfulness"
 __meta__ = {
@@ -170,10 +171,10 @@ __meta__ = {
 }
 
 [node name="VSlider" type="VSlider" parent="Control/Label"]
-margin_left = -38.7487
-margin_top = -8.37227
-margin_right = -2.74872
-margin_bottom = 1000.63
+margin_left = 204.173
+margin_top = 64.3394
+margin_right = 274.173
+margin_bottom = 528.339
 min_value = -60.0
 max_value = -20.0
 value = -39.0
