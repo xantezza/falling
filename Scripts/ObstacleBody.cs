@@ -6,20 +6,19 @@ public class ObstacleBody : KinematicBody
 	Vector3 velocity;
 	public override void _Ready()
     {
+
 		GD.Randomize();
-
 		float time = GetParent<Main>().time;
+		float trackLenght = GetParent<Main>().trackLenght;
+		velocity = new Vector3(0, 0, -0.15f) * GetParent<Main>().RangeLerp(time, 0, trackLenght, 0.5f, 3f);
+		
+		GetNode<CollisionShape>("1").RotationDegrees += new Vector3(0, 0, (float)GD.RandRange(0,360));
+		RotationDegrees += new Vector3(0, 0, (float)GD.RandRange(0, 360));
 
-		float offset = GetParent<Main>().RangeLerp(time, 0, 60, 1, 2.5f);
+		float obstacleOffset = GetParent<Main>().RangeLerp(time, 0, trackLenght, 2f, 0f); ;
 
-		velocity = new Vector3(0, 0, -0.15f) * offset;
-
-		RotationDegrees += new Vector3(0, 0, (float)GD.RandRange(0,360));
-
-		float obstacleOffset = 1/offset * 0.25f;
-
-		GetNode<CollisionShape>("1").Translation += new Vector3( (float)GD.RandRange(-offset, offset),
-																 (float)GD.RandRange(-offset, offset),
+		GetNode<CollisionShape>("1").Translation += new Vector3( (float)GD.RandRange(-obstacleOffset, obstacleOffset),
+																 (float)GD.RandRange(-obstacleOffset, obstacleOffset),
 																 0);
 		
 	}	

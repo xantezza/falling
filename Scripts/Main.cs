@@ -4,13 +4,15 @@ using System;
 public class Main : Spatial
 {
 	public float time = 0;
-	float moveSpeed = 0.04f;
+	public float trackLenght = 100;
+	float moveSpeed = 0.03f;
 	float high;
 	float mid;
 	float low;
 
 	float health = 100;
-	float trackLenght;
+	string currentOS;
+	float bottomDb = -30;
 	ProgressBar healthBar;
 	ProgressBar progressBar;
 	Area head;
@@ -29,14 +31,19 @@ public class Main : Spatial
 
 		material = GD.Load<SpatialMaterial>("res://Materials/1.tres");
 		obstacleScene = GD.Load<PackedScene>("res://Scenes/ObstacleBody.tscn");
+
+		currentOS = OS.GetName();
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
-		moveDirection = new Vector2(-Convert.ToInt32(Input.IsActionPressed("ui_right")) + Convert.ToInt32(Input.IsActionPressed("ui_left")),
-									-Convert.ToInt32(Input.IsActionPressed("ui_down")) + Convert.ToInt32(Input.IsActionPressed("ui_up"))
-									);
-									
+		if (currentOS == "Windows") moveDirection = new Vector2(-Convert.ToInt32(Input.IsActionPressed("ui_right")) + Convert.ToInt32(Input.IsActionPressed("ui_left")),
+																-Convert.ToInt32(Input.IsActionPressed("ui_down")) + Convert.ToInt32(Input.IsActionPressed("ui_up"))
+																);
+
+
+		//if (currentOS == "Android") moveDirection = new Vector2(Input.GetAccelerometer().x,Input.GetAccelerometer().y);
+
 		if (moveDirection != new Vector2(0, 0))
 		{
 			moveDirection = moveDirection.Normalized();
@@ -62,9 +69,9 @@ public class Main : Spatial
 		}
 
 		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(0, 0);
-		high = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(7000, 16000).Length()), -30, 10, 0, 255);
-		mid = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(500, 8000).Length()), -30, 10, 0, 255);
-		low = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(30, 100).Length()), -30, 10, 0, 255);
+		high = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(5000, 20000).Length()), bottomDb, 10, 0, 255);
+		mid = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(500, 5000).Length()), bottomDb, 10, 0, 255);
+		low = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(10, 200).Length()), bottomDb, 0, 0, 255);
 
 		material.AlbedoColor = Color.Color8
 		(
@@ -75,9 +82,13 @@ public class Main : Spatial
 		);
 
 		time += delta;
-		progressBar.Value = time;
+		
 		healthBar.Value = Mathf.MoveToward((float)healthBar.Value, health, 0.5f);
 		if (Input.IsActionJustPressed("ui_cancel")) GetTree().Quit();
+	}
+	public float RangeLerp(float value, float istart, float istop, float ostart, float ostop)
+	{
+		return ostart + (ostop - ostart) * value / (istop - istart);
 	}
 	void _on_Timer_timeout()
 	{
@@ -85,25 +96,23 @@ public class Main : Spatial
 		obstacle = (KinematicBody)obstacleScene.Instance();
 		AddChild(obstacle);
 		obstacle.Translation = new Vector3(0, 0, 26);
-		
+		progressBar.Value += 0.5f;
+		if (progressBar.Value > progressBar.MaxValue) GetTree().ReloadCurrentScene();
 
 	}
-	public float RangeLerp(float value, float istart, float istop, float ostart, float ostop)
-	{
-		return ostart + (ostop - ostart) * value / (istop - istart);
-	}
+	
 	void _on_ObstacleKiller_body_entered(Node body)
 	{
 		body.QueueFree();
 	}
 	void _on_Head_body_entered(Node body)
 	{
-		health -= 25;
+		health -= 20;
 		
 		if (health < 0) GetTree().ReloadCurrentScene();
 	}
 	
-	void _on_ItemList_item_activated(int index){
+	void _on_ItemList_item_selected(int index){
 
 		ItemList itemList = GetNode<ItemList>("Control/ScrollContainer/ItemList");
 		itemList.Hide();
@@ -111,10 +120,15 @@ public class Main : Spatial
 		AudioStreamPlayer audioPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer3D");
 		
 		audioPlayer.Stream = GD.Load<AudioStream>("res://Audio/" + itemList.GetItemText(index) + ".ogg");
+		audioPlayer.Play();
+
 		progressBar.MaxValue = audioPlayer.Stream.GetLength();
 		
-		audioPlayer.Play();
+		
+		GetNode<Label>("Control/Label").Hide();
 		GetNode<Timer>("Timer").Start();
-	}	
-
+	}
+	void _on_VSlider_value_changed(float value){
+		bottomDb = value;
+	}
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tunnel.tscn" type="PackedScene" id=2]
@@ -41,11 +41,15 @@ bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0, 0, 1 )
-corner_radius_top_left = 34
-corner_radius_top_right = 780
 
 [sub_resource type="DynamicFont" id=8]
 size = 64
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
@@ -74,10 +78,10 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="Head"]
 
 [node name="OmniLight" type="OmniLight" parent="Head"]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0012434, -3.72529e-09, -24.6333 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.00124305, -3.72529e-09, -25.694 )
 light_energy = 2.0
-omni_range = 6.63668
-omni_attenuation = 2.37841
+omni_range = 16.1
+omni_attenuation = 7.72747
 
 [node name="ObstacleKiller" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.19499 )
@@ -153,7 +157,33 @@ items = [ "Elahu, Quincy-Gerard - Skin and Bones", null, false, "Flume - MUD", n
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 38.7487
+margin_top = 43.3723
+margin_right = 204.749
+margin_bottom = 77.3723
+custom_fonts/font = SubResource( 9 )
+text = "Colorfulness"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSlider" type="VSlider" parent="Control/Label"]
+margin_left = -38.7487
+margin_top = -8.37227
+margin_right = -2.74872
+margin_bottom = 1000.63
+min_value = -60.0
+max_value = -20.0
+value = -39.0
+tick_count = 41
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
 [connection signal="body_entered" from="ObstacleKiller" to="." method="_on_ObstacleKiller_body_entered"]
-[connection signal="item_activated" from="Control/ScrollContainer/ItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="item_selected" from="Control/ScrollContainer/ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="value_changed" from="Control/Label/VSlider" to="." method="_on_VSlider_value_changed"]
