@@ -7,14 +7,12 @@
 extents = Vector3( 0.0808761, 1, 0.119799 )
 
 [sub_resource type="CubeMesh" id=2]
-material = ExtResource( 2 )
 size = Vector3( 0.162, 2, 0.2 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.0724647, 1, 0.119799 )
 
 [sub_resource type="CubeMesh" id=4]
-material = ExtResource( 2 )
 size = Vector3( 0.149, 2, 0.2 )
 
 [node name="ObstacleBody" type="KinematicBody"]
@@ -27,7 +25,7 @@ shape = SubResource( 1 )
 [node name="Obstacle" type="MeshInstance" parent="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58592e-05, 0.0379602, -0.00215077 )
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="3" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.910602, 0, 0 )
@@ -36,7 +34,7 @@ shape = SubResource( 1 )
 [node name="Obstacle" type="MeshInstance" parent="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000121772, 0.042605, -0.00273299 )
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="1" type="CollisionShape" parent="."]
 transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 1, 0, 0, -0.0096159 )
@@ -44,13 +42,12 @@ shape = SubResource( 3 )
 
 [node name="Obstacle2" type="MeshInstance" parent="1"]
 mesh = SubResource( 4 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="OmniLight4" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0152023, 0.00325608, -0.491793 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0189767, 0.858822, -0.264036 )
 light_energy = 16.0
-omni_range = 1.38787
-omni_attenuation = 3.36358
+omni_attenuation = 20.3929
 __meta__ = {
 "_editor_description_": ""
 }
