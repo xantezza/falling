@@ -5,7 +5,6 @@ public class Main : Spatial
 {
 	public float time = 0;
 	public float trackLenght = 100;
-	float moveSpeed = 0.02f;
 	float high;
 	float mid;
 	float low;	
@@ -18,10 +17,10 @@ public class Main : Spatial
 	PackedScene obstacleScene;
 	KinematicBody obstacle;
 	Timer timer;
+	Sprite cursor;
 	SpatialMaterial material;
 	AudioEffectSpectrumAnalyzerInstance spectrum;
 	Vector2 moveDirection = new Vector2(0, 0);
-
 	public override void _Ready()
 	{
 		head = GetNode<Area>("Head");
@@ -29,53 +28,46 @@ public class Main : Spatial
 		progressBar = GetNode<ProgressBar>("Control/Progress");
 		material = GD.Load<SpatialMaterial>("res://Materials/1.tres");
 		obstacleScene = GD.Load<PackedScene>("res://Scenes/ObstacleBody.tscn");
-		timer = GetNode<Timer>("Spawner");	
+		timer = GetNode<Timer>("Spawner");
+		cursor = GetNode<Sprite>("Control/Cursor");
+
+		Input.SetMouseMode(Input.MouseMode.Visible);
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
+		cursor.Position = GetViewport().GetMousePosition();
 		moveDirection = new Vector2(
-			-Convert.ToInt32(Input.IsActionPressed("ui_right")) + Convert.ToInt32(Input.IsActionPressed("ui_left")),
-			-Convert.ToInt32(Input.IsActionPressed("ui_down")) + Convert.ToInt32(Input.IsActionPressed("ui_up"))
+			new Vector2(OS.GetScreenSize().x/2, OS.GetScreenSize().y /2) - GetViewport().GetMousePosition()
 			);
-		if (moveDirection != new Vector2(0, 0))
+		moveDirection  *= 0.00008f;
+		var headNextPosition = new Vector2(head.Translation.x, head.Translation.y) + moveDirection;
+		if (headNextPosition.DistanceTo(new Vector2(0, 0)) < 0.9)
 		{
-			moveDirection = moveDirection.Normalized();
-
-			moveDirection = new Vector2(
-										moveDirection.x,
-										moveDirection.y
-										) * moveSpeed;		
-
-			var a = new Vector2(head.Translation.x, head.Translation.y) + moveDirection;
-			if (a.DistanceTo(new Vector2(0, 0)) < 0.9)
-			{
-				head.Translation += new Vector3( moveDirection.x,
-												 moveDirection.y,
-												 0)*delta*100;
-			}
-			else
-			{
-				health -= 0.5f;
-				
-				if (health < 0) GetTree().ReloadCurrentScene();
-			}
+			head.Translation += new Vector3( moveDirection.x,
+												moveDirection.y,
+												0);
 		}
+		else
+		{
+			health -= 0.5f;
 
-		
+			if (health < 0)
+				GetTree().ReloadCurrentScene();
+		}
 		material.AlbedoColor = MusicToRGB();
 		time += delta;
-		
-		healthBar.Value = Mathf.MoveToward((float)healthBar.Value, health, 0.5f);
+		healthBar.Value = health;
 		if (Input.IsActionJustPressed("ui_cancel"))
 			GetTree().Quit();
+
 	}
 	public Color MusicToRGB(){
 
 		spectrum = (AudioEffectSpectrumAnalyzerInstance)AudioServer.GetBusEffectInstance(0, 0);
-		high = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(5000, 20000).Length()), bottomDb, 10, 0, 255);
-		mid = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(500, 5000).Length()), bottomDb, 10, 0, 255);
-		low = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(10, 200).Length()), bottomDb, 0, 0, 255);
+		high = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(5000, 20000,AudioEffectSpectrumAnalyzerInstance.MagnitudeMode.Average).Length()), bottomDb, 20, 0, 255);
+		mid = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(500, 5000, AudioEffectSpectrumAnalyzerInstance.MagnitudeMode.Average).Length()), bottomDb, 20, 0, 255);
+		low = RangeLerp(GD.Linear2Db(spectrum.GetMagnitudeForFrequencyRange(10, 200, AudioEffectSpectrumAnalyzerInstance.MagnitudeMode.Average).Length()), bottomDb, 20, 0, 255);
 
 		return Color.Color8
 		(
@@ -98,14 +90,12 @@ public class Main : Spatial
 
 		var timer = GetNode<Timer>("Spawner");
 		timer.WaitTime = RangeLerp(time, 1, trackLenght, 0.5f, 0.2f);
-		Console.WriteLine(timer.WaitTime);
 		if (progressBar.Value > progressBar.MaxValue) GetTree().ReloadCurrentScene();
 		progressBar.Value += timer.WaitTime;
 	}
 
 	void _on_ObstacleKiller_body_entered(Node body)
 	{
-		GetNode<Label>("Control/Label2").Text += "1";
 		body.QueueFree();
 	}
 	void _on_Head_body_entered(Node body)
@@ -127,6 +117,9 @@ public class Main : Spatial
 
 		GetNode<Label>("Control/Label").Hide();
 		GetNode<Timer>("Spawner").Start();
+		GetViewport().WarpMouse( new Vector2(OS.GetScreenSize().x / 2, OS.GetScreenSize().y / 2));
+
+		Input.SetMouseMode(Input.MouseMode.Hidden);
 	}
 	void _on_VSlider_value_changed(float value){
 		bottomDb = value;

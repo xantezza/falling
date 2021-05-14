@@ -12,7 +12,7 @@ public class ObstacleBody : KinematicBody
 		velocity = new Vector3(
 			0, 
 			0, 
-			-0.08f * Main.RangeLerp(time, 0, trackLenght, 3f, 5f)
+			-0.08f * Main.RangeLerp(time, 0, trackLenght, 1f, 3f)
 			);
 		
 		GetNode<CollisionShape>("1").RotationDegrees += new Vector3(
