@@ -1,5 +1,6 @@
 
-<a href="https://github.com/nirasu-git/Falling/releases/tag/v0.2-alpha"> Текущий билд </a>
+<a href="https://github.com/nirasu-git/Falling/releases/tag/v0.3-alpha"> Current build </a>
 
 Геймплей
-[![Everything Is AWESOME](https://user-images.githubusercontent.com/74206629/118289816-64188500-b4de-11eb-9c25-a629f5f5d73c.png)](https://www.youtube.com/watch?v=B2Fe99t8vbM "Falling ")
+[![](https://user-images.githubusercontent.com/74206629/128850817-b9775838-ac86-43bf-a8c7-3516945e3c74.png)](https://www.youtube.com/watch?v=9ypPaqQT7T0 "Falling ")
+
