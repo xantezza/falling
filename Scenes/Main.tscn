@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tunnel.tscn" type="PackedScene" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Materials/Drawing (5).png" type="Texture" id=5]
 
 [sub_resource type="SphereShape" id=1]
-radius = 0.0876887
+radius = 0.0674931
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 4.47944, 4.43849, 6.6446 )
@@ -40,13 +40,16 @@ corner_radius_bottom_right = 55
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=7]
 size = 60
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 50
 use_mipmaps = true
 use_filter = true
@@ -137,7 +140,8 @@ margin_right = 1925.0
 margin_bottom = 1095.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_styles/bg = SubResource( 9 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/guide_color = Color( 0.27451, 0.27451, 0.27451, 1 )
 custom_colors/font_color_selected = Color( 0.964706, 0.964706, 0.964706, 1 )
 custom_colors/font_color = Color( 0.717647, 0.717647, 0.717647, 1 )
@@ -151,7 +155,7 @@ margin_left = 1616.43
 margin_top = 547.787
 margin_right = 1893.43
 margin_bottom = 604.787
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Colorfulness"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,7 +181,7 @@ margin_left = 1301.79
 margin_top = 547.787
 margin_right = 1578.79
 margin_bottom = 604.787
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Speed"
 __meta__ = {
 "_edit_use_anchors_": false

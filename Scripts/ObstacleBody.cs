@@ -4,7 +4,7 @@ public class ObstacleBody : KinematicBody
 {	
 	Vector3 velocity;
 	public override void _Ready()
-    {
+	{
 
 		GD.Randomize();
 		float time = GetParent<Main>().time;
@@ -12,7 +12,7 @@ public class ObstacleBody : KinematicBody
 		velocity = new Vector3(
 			0, 
 			0, 
-			-0.08f * Main.RangeLerp(time, 0, trackLenght, 1f, 3f)
+			-0.08f * Main.RangeLerp(time, 0, trackLenght, 1f,10f)
 			);
 		
 		GetNode<CollisionShape>("1").RotationDegrees += new Vector3(

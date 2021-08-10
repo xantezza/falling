@@ -3,12 +3,12 @@ using System;
 
 public class Main : Spatial
 {
+	private float speed = 0.00008f;
 	public float time = 0;
 	public float trackLenght = 100;
 	float high;
 	float mid;
-	float low;	
-
+	float low;
 	float health = 100;
 	float bottomDb = -30;
 	ProgressBar healthBar;
@@ -40,21 +40,20 @@ public class Main : Spatial
 		moveDirection = new Vector2(
 			new Vector2(OS.GetScreenSize().x/2, OS.GetScreenSize().y /2) - GetViewport().GetMousePosition()
 			);
-		moveDirection  *= 0.00008f;
+		
+		moveDirection  *=  speed;
+		
 		var headNextPosition = new Vector2(head.Translation.x, head.Translation.y) + moveDirection;
+		
 		if (headNextPosition.DistanceTo(new Vector2(0, 0)) < 0.9)
 		{
 			head.Translation += new Vector3( moveDirection.x,
 												moveDirection.y,
 												0);
 		}
-		else
-		{
-			health -= 0.5f;
-
-			if (health < 0)
-				GetTree().ReloadCurrentScene();
-		}
+		if (health < 0)
+			GetTree().ReloadCurrentScene();
+		
 		material.AlbedoColor = MusicToRGB();
 		time += delta;
 		healthBar.Value = health;
@@ -89,7 +88,7 @@ public class Main : Spatial
 		obstacle.Translation = new Vector3(0, 0, 52);
 
 		var timer = GetNode<Timer>("Spawner");
-		timer.WaitTime = RangeLerp(time, 1, trackLenght, 0.5f, 0.2f);
+		timer.WaitTime = RangeLerp(time, 1, trackLenght, 0.5f, 0.05f);
 		if (progressBar.Value > progressBar.MaxValue) GetTree().ReloadCurrentScene();
 		progressBar.Value += timer.WaitTime;
 	}

@@ -6,3 +6,11 @@ C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.AssemblyInfo.cs
 C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.csproj.CoreCompileInputs.cache
 C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.dll
 C:\csharp\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.pdb
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\bin\ExportDebug\Falling.dll
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\bin\ExportDebug\Falling.pdb
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.csproj.AssemblyReference.cache
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.AssemblyInfoInputs.cache
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.AssemblyInfo.cs
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.csproj.CoreCompileInputs.cache
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.dll
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\ExportDebug\Falling.pdb

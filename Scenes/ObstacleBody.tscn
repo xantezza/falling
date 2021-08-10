@@ -23,7 +23,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.888607, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="Obstacle" type="MeshInstance" parent="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58592e-05, 0.0379602, -0.00215077 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58443e-05, 0.0379602, -0.00215077 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
@@ -45,8 +45,9 @@ mesh = SubResource( 4 )
 material/0 = ExtResource( 2 )
 
 [node name="OmniLight4" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0189767, 0.858822, -0.264036 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0189767, 0.0365654, -0.293718 )
 light_energy = 16.0
+omni_range = 2.18427
 omni_attenuation = 20.3929
 __meta__ = {
 "_editor_description_": ""

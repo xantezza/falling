@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\csharp\\Falling-In-Tunnel\\Falling.csproj": {}
+    "C:\\Users\\itori\\Desktop\\work\\godot\\GodotCs\\Falling-In-Tunnel\\Falling.csproj": {}
   },
   "projects": {
-    "C:\\csharp\\Falling-In-Tunnel\\Falling.csproj": {
+    "C:\\Users\\itori\\Desktop\\work\\godot\\GodotCs\\Falling-In-Tunnel\\Falling.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\csharp\\Falling-In-Tunnel\\Falling.csproj",
+        "projectUniqueName": "C:\\Users\\itori\\Desktop\\work\\godot\\GodotCs\\Falling-In-Tunnel\\Falling.csproj",
         "projectName": "Falling",
-        "projectPath": "C:\\csharp\\Falling-In-Tunnel\\Falling.csproj",
+        "projectPath": "C:\\Users\\itori\\Desktop\\work\\godot\\GodotCs\\Falling-In-Tunnel\\Falling.csproj",
         "packagesPath": "C:\\Users\\itori\\.nuget\\packages\\",
-        "outputPath": "C:\\csharp\\Falling-In-Tunnel\\.mono\\temp\\obj\\",
+        "outputPath": "C:\\Users\\itori\\Desktop\\work\\godot\\GodotCs\\Falling-In-Tunnel\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -25,8 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packages.stride3d.net/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net472": {
@@ -43,7 +42,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

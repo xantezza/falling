@@ -6,3 +6,11 @@ C:\csharp\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.AssemblyInfo.cs
 C:\csharp\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.csproj.CoreCompileInputs.cache
 C:\csharp\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.dll
 C:\csharp\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.pdb
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\bin\Debug\Falling.dll
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\bin\Debug\Falling.pdb
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.csproj.AssemblyReference.cache
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.AssemblyInfoInputs.cache
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.AssemblyInfo.cs
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.csproj.CoreCompileInputs.cache
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.dll
+C:\Users\itori\Desktop\work\godot\GodotCs\Falling-In-Tunnel\.mono\temp\obj\Debug\Falling.pdb
